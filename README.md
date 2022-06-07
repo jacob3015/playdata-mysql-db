@@ -141,4 +141,4 @@ CALL signing_up_guild('신규플레이어01', '신규길드01');
 ## Contributors
 * 박재민
 * 윤홍찬
-* 윤예지
+* 유예지
