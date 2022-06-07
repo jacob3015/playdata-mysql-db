@@ -47,12 +47,12 @@ guild table과 player table을 생성하며, data를 삽입하는 insert문을 �
 -- 길드 테이블 생성
 CREATE TABLE guild(
 -- column 정의
-	gno			INT AUTO_INCREMENT,		-- 길드 번호, PK
-	name		VARCHAR(10),			-- 길드명
-	tend		VARCHAR(10),			-- 길드 성향, 전투/생활/친목
-	reg			VARCHAR(10),			-- 길드 활동 지역, 북부/서부/동부/남부/중앙
-	lev			SMALLINT,				-- 길드 LEVEL
-	create_date	DATE,					-- 길드 생성 일
+	gno		INT AUTO_INCREMENT,	-- 길드 번호, PK
+	name		VARCHAR(10),		-- 길드명
+	tend		VARCHAR(10),		-- 성향, 전투/생활/친목
+	reg		VARCHAR(10),		-- 활동 지역, 북부/서부/동부/남부/중앙
+	lev		SMALLINT,		-- LEVEL
+	create_date	DATE,			-- 생성 일
 -- pk 정의
 	CONSTRAINT pk_gno_guild PRIMARY KEY (gno)
 );
@@ -63,16 +63,16 @@ CREATE TABLE guild(
 -- 플레이어 테이블 생성
 CREATE TABLE player(
 -- column 정의
-	id			VARCHAR(10),	-- 플레이어 캐릭터 id, PK
-	gno			INT,			-- 길드 번호, FK
+	id		VARCHAR(10),	-- 플레이어 캐릭터 id, PK
+	gno		INT,		-- 길드 번호, FK
 	job 		VARCHAR(10),	-- 직업, 전사/궁수/마법사/성직자/암살자
-	lev			SMALLINT,		-- LEVEL
-	str			INT,			-- 전투력
-	sex			VARCHAR(1),		-- 성벌(M, F)
-	rid			VARCHAR(10),	-- 대표 플레어이 캐릭터 id
-	create_date	DATE,			-- 캐릭터 생성 일
-	last_date	DATE,			-- 최근 접속일
-	cash		int,			-- 누적 결제 금액
+	lev		SMALLINT,	-- LEVEL
+	str		INT,		-- 전투력
+	sex		VARCHAR(1),	-- 성벌(M, F)
+	rid		VARCHAR(10),	-- 대표 플레어이 캐릭터 id
+	create_date	DATE,		-- 캐릭터 생성 일
+	last_date	DATE,		-- 최근 접속일
+	cash		int,		-- 누적 결제 금액
 -- pk, fk 정의
 	CONSTRAINT pk_id_adventurer PRIMARY KEY (id),
 	CONSTRAINT fk_gno_adventurer FOREIGN KEY (gno) REFERENCES guild(gno)
